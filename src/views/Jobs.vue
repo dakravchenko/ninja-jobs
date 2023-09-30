@@ -11,12 +11,12 @@
 export default {
     data(){
         return {
-            jobs: [
-                {title: 'UX', id : 1, details: 'lorem'},
-                {title: 'VUE', id : 2, details: 'lorem'},
-                {title: 'REACT', id : 3, details: 'lorem'}
-            ]
+            jobs: []
         }
+    },
+    async mounted(){
+        const res = await fetch('http://localhost:3000/jobs')
+        this.jobs = await res.json()
     }
 }
 </script>
